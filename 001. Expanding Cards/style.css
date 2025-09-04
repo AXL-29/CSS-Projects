@@ -41,8 +41,10 @@ body {
     transition: opacity 0.3s ease;
 }
 
-.panel:hover {
-    flex: 1.5;
+.panel:not(.active):hover {
+    flex: 1.2;
+    filter: brightness(1.1);
+    transition: flex 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s;
 }
 
 .panel.active {
