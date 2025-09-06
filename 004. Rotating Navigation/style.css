@@ -40,6 +40,10 @@ body {
     transition: transform 0.5s linear;
 }
 
+.container.show-nav .circle{
+    transform: rotate(-70deg);
+}
+
 .circle button {
     position: absolute;
     top: 50%;
@@ -65,6 +69,11 @@ body {
     transform-origin: top left;
 }
 
+.container.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
 nav {
     position: fixed;
     bottom: 40px;
@@ -85,6 +94,20 @@ nav ul li {
     transition: transform 0.4s ease-in;
 }
 
+nav ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+nav ul li + li {
+    transform: translateX(-150%);
+    margin-left: 15px;
+}
+
+nav ul li + li + li {
+    transform: translateX(-200%);
+    margin-left: 30px;
+}
 .container img {
     max-width: 100%;
 }
