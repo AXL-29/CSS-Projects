@@ -1,29 +1,59 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  color: #333;
+  text-align: center;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+.container h2 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem 3rem; /* bottom + left spacing */
+  color: #000;
+  text-align: start;
 }
 
 .project-iframe {
   width: 100%;
-  height: 50vh;   /* full viewport height */
-  margin: 30px;
+  height: 50vh;
+  margin: 1.875rem;       /* equalized margin */
+  border: none;           /* removes default border */
   border-radius: 10px;
-  border: none;      /* remove default iframe border */
-  outline: none;     /* extra safety for some browsers */
+  outline: none;
   display: block;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0.625rem;
+  }
+
+  .container h2 {
+    margin-left: 1rem;
+    font-size: 1.25rem;
+  }
+
+  .project-iframe {
+    height: 60vh; /* taller for smaller screens */
+    margin: 1rem;
+  }
 }
