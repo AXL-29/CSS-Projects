@@ -1,48 +1,100 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
+:root {
+  --left-bg-color: rgba(87, 84, 236, 0.7);
+  --right-bg-color: rgba(43, 43, 43, 0.8);
+}
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Ubuntu', sans-serif;
   height: 100vh;
-  overflow-x: hidden;
-  margin: 0;
+  overflow: hidden;
 }
 
+/* Container setup */
 .container {
   position: relative;
   height: 100%;
   width: 100%;
-  background: #333;
+  display: flex;
 }
 
+/* Split sections */
 .split {
-  position: absolute;
-  height: 100%;
-  width: 50%;
+  position: relative;
+  flex: 1;
   overflow: hidden;
+  transition: flex 1s ease;
 }
 
-.split.split.left::before {
+.split::before {
   content: '';
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: var(--left-bg);
+  z-index: 1;
 }
 
 .split.left {
-  left: 0;
-  background: url('./assets/images/ps5.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url('./assets/images/ps5.png') no-repeat center center/cover;
+}
+.split.left::before {
+  background-color: var(--left-bg-color);
 }
 
 .split.right {
-  right: 0;
-  background: url('./assets/images/xbox.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url('./assets/images/xbox.jpg') no-repeat center center/cover;
+}
+.split.right::before {
+  background-color: var(--right-bg-color);
+}
+
+/* Content inside splits */
+.content {
+  position: relative;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  white-space: nowrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  border: 0.2rem solid #fff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 30px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Hover effect to expand one side */
+.container:hover .split {
+  flex: 1;
+}
+
+.container:hover .split:hover {
+  flex: 2;
 }
