@@ -17,3 +17,32 @@ body {
   width: 100%;
   background: #333;
 }
+
+.split {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+}
+
+.split.split.left::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--left-bg);
+}
+
+.split.left {
+  left: 0;
+  background: url('./assets/images/ps5.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.right {
+  right: 0;
+  background: url('./assets/images/xbox.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
