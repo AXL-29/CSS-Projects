@@ -5,7 +5,6 @@
   --overlay-color: rgba(0, 0, 0, 0.4);
   --primary-color: lightblue;
   --text-color: #fff;
-  --error-color: #ff6b6b;
   --radius: 10px;
   --transition: 0.3s ease;
 }
@@ -115,22 +114,35 @@ body {
   border-color: var(--primary-color);
 }
 
-/* Floating labels */
+/* Floating labels with letter animation */
 .form-control label {
   position: absolute;
   top: 14px;
   left: 0;
-  color: #ccc;
   font-size: 16px;
   pointer-events: none;
-  transition: 0.2s ease all;
+  color: #ccc;
+  display: inline-block;
 }
 
+.form-control label span {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+  min-width: 5px;
+}
+
+/* Floating effect when active */
+.form-control input:focus ~ label span,
+.form-control input:valid ~ label span {
+  transform: translateY(-18px);
+  color: var(--primary-color);
+  font-size: 14px;
+}
+
+/* Make sure entire label shifts smoothly upward */
 .form-control input:focus ~ label,
 .form-control input:valid ~ label {
-  top: -8px;
-  font-size: 12px;
-  color: var(--primary-color);
+  top: -2px;
 }
 
 @keyframes fadeIn {
