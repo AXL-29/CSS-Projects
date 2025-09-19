@@ -6,7 +6,7 @@
   --secondary: #1e293b;
   --card-bg: #fff;
   --shadow: rgba(0, 0, 0, 0.08);
-  --radius: 14px;
+  --radius: 0.875rem; /* 14px converted to rem */
 }
 
 * {
@@ -37,7 +37,7 @@ h1 {
 .projects-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem; /* ✅ gap between project items */
+  gap: 2rem;
 }
 
 .project-item {
@@ -45,28 +45,16 @@ h1 {
   padding: 1.5rem;
   border-radius: var(--radius);
   box-shadow: 0 4px 12px var(--shadow);
-  transition: transform 0.25s ease;
-  min-height: 60vh;   /* ✅ each card is at least 60% of viewport height */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-  
-.project-iframe {
-  width: 100%;
-  flex-grow: 1;       /* ✅ iframe stretches to fill available space */
-  border: none;
-  border-radius: 10px;
-  background: #f9fafb;
-}
-@media (min-width: 800px) {
-  .projects-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 .project-item:hover {
   transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); /* Enhanced hover shadow */
 }
 
 .project-item h2 {
@@ -77,8 +65,21 @@ h1 {
 
 .project-iframe {
   width: 100%;
+  flex-grow: 1;
   height: 320px;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius);
   background: #f9fafb;
+}
+
+@media (min-width: 800px) {
+  .projects-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .projects-list {
+    grid-template-columns: repeat(3, 1fr); /* Add more columns for larger screens */
+  }
 }
